@@ -1,7 +1,7 @@
 const express = require("express");
 const Stripe = require("stripe");
 const cors = require("cors");
-require("dotenv").config(); // Load environment variables
+require("dotenv").config(); 
 
 const app = express();
 app.use(cors());
@@ -18,7 +18,7 @@ app.post("/create-payment-intent", async (req, res) => {
     }
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount * 100, // Convert to cents
+      amount: amount * 100, 
       currency: "usd",
       payment_method_types: ["card"],
     });
@@ -30,14 +30,9 @@ app.post("/create-payment-intent", async (req, res) => {
   }
 });
 
-app.get("/fk", (req, res) => {
-  res.status(200).json({ message: "Backend is working fine!" });
-});
 
-// ✅ Export for Vercel
 module.exports = app;
 
-// ✅ Start server locally when running `node server.js`
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
