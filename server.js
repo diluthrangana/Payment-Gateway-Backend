@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const stripe = Stripe("sk_test_51R5skGGYABQw6E1f9QbbUNrAJJOn9cXt4cjjJ3pUaKNLHwDKXl4ziuyL1yrBRUCkiiKpYDX1Knt3v5d1sx68Ljuz001eSEZ7gM"); // Use ENV variable
+const stripe = Stripe("sk_test_51R64TNP6W0yfsGrVZvDqMIiUpBCyfRJ1uE35EA8NAxxltV2ZuEx59VN8T87tlii4GGd3e5YJwNu26ZrXXmostj7Y00jmHsiwRq"); // Use ENV variable
 
 app.post("/create-payment-intent", async (req, res) => {
   try {
